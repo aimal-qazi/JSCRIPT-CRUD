@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Adding function to the button to display Divs -->
+
+      <div class="left">
+        <button onclick="toshow('productFormDiv')">Add Product</button>
+        <button onclick="toshow('vendorFormDiv')">Add Vendor</button>
+        <button onclick="toshow('categoryFormDiv')">Add Category</button>
+        <button onclick="toshow('productShowDiv')">Show Product</button>
+        <button onclick="toshow('vendorShowDiv')">Show Vendor</button>
+        <button onclick="toshow('categoryShowDiv')">Show Category</button>
+        <button onclick="toshow('productRangeShowDiv')">
+          Product by Range
+        </button>
+        <button onclick="toshow('productVendorShowDiv')">
+          Product by Vendor
+        </button>
+        <button onclick="toshow('productCategoryShowDiv')">
+          Product by Category
+        </button>
+      </div>
+      <div class="right">
+        <!-- Adding Vendor -->
+
+        <div id="vendorFormDiv" class="get table">
+          <form id="vendorForm">
+            <input
+              required
+              id="vendorInp"
+              type="text"
+              placeholder="Enter Vendor Name"
+            />
+            <button type="submit">Add</button>
+          </form>
+        </div>
+        <!-- Showing Vendor -->
+
+        <div id="vendorShowDiv" class="get table">
+          <table>
+            <thead>
+              <tr>
+                <td>Vendor Name</td>
+                <td>Remove</td>
+              </tr>
+            </thead>
+            <tbody id="vendorTable"></tbody>
+          </table>
+        </div>
+        <!-- Adding Category -->
+
+        <div id="categoryFormDiv" class="get table">
+          <form id="categoryForm">
+            <input
+              id="categoryInp"
+              type="text"
+              placeholder="Enter Category Name"
+              required
+            />
+            <button type="submit">Add</button>
+          </form>
+        </div>
+        <!-- Showing Category -->
+
+        <div id="categoryShowDiv" class="get table">
+          <table>
+            <thead>
+              <tr>
+                <td>Category Name</td>
+                <td>Remove</td>
+              </tr>
+            </thead>
+            <tbody id="categoryTable"></tbody>
+          </table>
+        </div>
+        <!-- Adding Product -->
+
+        <div id="productFormDiv" class="get table">
+          <form id="productForm">
+            <input
+              required
+              id="productInp"
+              type="text"
+              placeholder="Enter product Name"
+            />
+            <input
+              required
+              id="productPrice"
+              type="number"
+              placeholder="Enter product Price"
+            />
+            <select id="pv" required></select>
+            <select id="pc" required></select>
+            <button type="submit">Add</button>
+          </form>
+        </div>
+        <!-- Showing Product -->
+
+        <div id="productShowDiv" class="get table">
+          <table>
+            <thead>
+              <tr>
+                <td>Product Name</td>
+                <td>Product price</td>
+                <td>Vendor</td>
+                <td>Category</td>
+                <td>Remove</td>
+              </tr>
+            </thead>
+            <tbody id="productTable"></tbody>
+          </table>
+        </div>
+        <!-- Showing Products By Range -->
+
+        <div id="productRangeShowDiv" class="get table tv2">
+          <form id="rangeForm">
+            <input id="ranging" type="number" placeholder="Enter price range" />
+            <button type="submit">Submit</button>
+          </form>
+          <table>
+            <thead>
+              <tr>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Vendor</td>
+                <td>Category</td>
+              </tr>
+            </thead>
+            <tbody id="productRangeTable"></tbody>
+          </table>
+        </div>
+        <!-- Showing Products By Vendor -->
+
+        <div id="productVendorShowDiv" class="get table tv2">
+          <form id="vendorFilterForm">
+            <input id="vendoring" type="text" placeholder="Enter vendor name" />
+            <button type="submit">Submit</button>
+          </form>
+          <table>
+            <thead>
+              <tr>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Vendor</td>
+                <td>Category</td>
+              </tr>
+            </thead>
+            <tbody id="productVendorTable"></tbody>
+          </table>
+        </div>
+        <!-- Showing Products By Category -->
+
+        <div id="productCategoryShowDiv" class="get table tv2">
+          <form id="CategoryFilterForm">
+            <input
+              id="Categorying"
+              type="text"
+              placeholder="Enter category name"
+            />
+            <button type="submit">Submit</button>
+          </form>
+          <table>
+            <thead>
+              <tr>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Vendor</td>
+                <td>Category</td>
+              </tr>
+            </thead>
+            <tbody id="productCategoryTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
