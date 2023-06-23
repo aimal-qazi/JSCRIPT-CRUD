@@ -9,7 +9,7 @@ function toshow(formId) {
   byForm.style.display = "block";
 }
 
-// For Adding and Deleting Vendor
+// For Adding and Deleting and Editing Vendor
 
 const vendorF = document.getElementById("vendorForm");
 const vendorTableBody = document.getElementById("vendorTable");
@@ -34,6 +34,7 @@ function gettingVendor(event) {
 function showingVendor(vendor) {
   const row = document.createElement("tr");
   const nameCell = document.createElement("td");
+  const editCell = document.createElement("td");
   const deleteCell = document.createElement("td");
 
   nameCell.textContent = vendor.vendorName;
@@ -41,16 +42,48 @@ function showingVendor(vendor) {
   const deleteCellbtn = document.createElement("button");
   deleteCellbtn.textContent = "Delete";
 
+  const editCellBtn = document.createElement("button");
+  editCellBtn.textContent = "Edit";
+
   alert(`${vendor.vendorName} is Successfully Added`);
+
+  editCellBtn.addEventListener("click", function () {
+    editVendor(row, vendor);
+  });
 
   deleteCellbtn.addEventListener("click", function () {
     deleteVendor(row);
   });
 
+  editCell.appendChild(editCellBtn);
   deleteCell.appendChild(deleteCellbtn);
   row.appendChild(nameCell);
+  row.appendChild(editCell);
   row.appendChild(deleteCell);
   vendorTableBody.appendChild(row);
+}
+
+function editVendor(row, vendor) {
+  const nameCell = row.cells[0];
+  const updateName = prompt("Enter vendor name: ", vendor.vendorName);
+  nameCell.textContent = updateName;
+  vendor.vendorName = updateName;
+
+  const vendorSelect = document.getElementById("pv");
+  const options = vendorSelect.options;
+
+  while (options.length > 1) {
+    vendorSelect.removeChild(options[1]);
+  }
+
+  for (let i = 0; i < vendorArray.length; i++) {
+    const option = document.createElement("option");
+    option.value = vendorArray[i].vendorName;
+    option.textContent = vendorArray[i].vendorName;
+    vendorSelect.appendChild(option);
+  }
+
+  alert(`${updateName} is successfully saved`);
 }
 
 function deleteVendor(vendors) {
@@ -84,12 +117,20 @@ function addingCategory(event) {
 function showingCategory(cate) {
   const row = document.createElement("tr");
   const nameCell = document.createElement("td");
+  const editCell = document.createElement("td");
+  const editCellBtn = document.createElement("button");
   const deleteCell = document.createElement("td");
   const deleteCellBtn = document.createElement("button");
 
   nameCell.textContent = cate.name;
 
   alert(`${cate.name} is Successfully Added`);
+
+  editCellBtn.textContent = "Edit";
+  editCell.appendChild(editCellBtn);
+  editCellBtn.addEventListener("click", function () {
+    editCategory(row, cate);
+  });
 
   deleteCellBtn.textContent = "Delete";
   deleteCell.appendChild(deleteCellBtn);
@@ -98,8 +139,30 @@ function showingCategory(cate) {
   });
 
   row.appendChild(nameCell);
+  row.appendChild(editCell);
   row.appendChild(deleteCell);
   categoryFormTable.appendChild(row);
+}
+
+function editCategory(row, cate) {
+  const nameCell = row.cells[0];
+  const updateName = prompt("Enter category name: ", cate.name);
+  nameCell.textContent = updateName;
+  cate.name = updateName;
+
+  const categorySelect = document.getElementById("pc");
+  const options = categorySelect.options;
+
+  while (options.length > 1) {
+    categorySelect.removeChild(options[1]);
+  }
+
+  for (let i = 0; i < category.length; i++) {
+    const option = document.createElement("option");
+    option.value = category[i].name;
+    option.textContent = category[i].name;
+    categorySelect.appendChild(option);
+  }
 }
 
 function deleteCategory(catId) {
@@ -140,8 +203,13 @@ function showingProduct(pro) {
   const priceCell = document.createElement("td");
   const vendorCell = document.createElement("td");
   const categoryCell = document.createElement("td");
+  const editCell = document.createElement("td");
+  const editCellBtn = document.createElement("button");
   const deleteCell = document.createElement("td");
   const deleteCellBtn = document.createElement("button");
+
+  editCellBtn.textContent = "Edit";
+  editCell.appendChild(editCellBtn);
 
   deleteCellBtn.textContent = "Delete";
   deleteCell.appendChild(deleteCellBtn);
@@ -160,6 +228,7 @@ function showingProduct(pro) {
   row.appendChild(priceCell);
   row.appendChild(vendorCell);
   row.appendChild(categoryCell);
+  row.appendChild(editCell);
   row.appendChild(deleteCell);
   productFormTable.appendChild(row);
 }

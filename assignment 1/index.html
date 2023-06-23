@@ -48,6 +48,7 @@
             <thead>
               <tr>
                 <td>Vendor Name</td>
+                <td>Edit</td>
                 <td>Remove</td>
               </tr>
             </thead>
@@ -74,6 +75,7 @@
             <thead>
               <tr>
                 <td>Category Name</td>
+                <td>Edit</td>
                 <td>Remove</td>
               </tr>
             </thead>
@@ -96,8 +98,12 @@
               type="number"
               placeholder="Enter product Price"
             />
-            <select id="pv" required></select>
-            <select id="pc" required></select>
+            <select id="pv" required>
+              <option value="" selected disabled>Select Vendor</option>
+            </select>
+            <select id="pc" required>
+              <option value="" selected disabled>Select Category</option>
+            </select>
             <button type="submit">Add</button>
           </form>
         </div>
@@ -111,6 +117,7 @@
                 <td>Product price</td>
                 <td>Vendor</td>
                 <td>Category</td>
+                <td>Edit</td>
                 <td>Remove</td>
               </tr>
             </thead>

@@ -77,3 +77,11 @@ form button {
   width: 90%;
   margin: 0 auto;
 }
+tbody tr td button {
+  padding: 5px 15px;
+  border: 0;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
